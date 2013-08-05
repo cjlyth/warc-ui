@@ -1,0 +1,47 @@
+{
+  "name": "warc-ui",
+  "private": true,
+  "version": "0.1.0",
+  "description": "WARC manager web interface",
+  "keywords": [
+    "warc",
+    "internet",
+    "archive"
+  ],
+  "homepage": "http://cjlyth.github.io/warc-ui",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/cjlyth/warc-ui/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cjlyth/warc-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cjlyth/warc-ui/issues"
+  },
+  "engines": {
+    "node": ">=0.10.13"
+  },
+  "devDependencies": {
+    "jade": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-express-server": "~0.4.2",
+    "connect-livereload": "~0.2.0",
+    "express": "3.3.4",
+    "less-middleware": "*",
+    "express-livereload": "0.0.24",
+    "q": "~0.9.6"
+  },
+  "config": {
+    "reload_port": "9002",
+    "session_secret": "warc-ui_sessionKey"
+  },
+  "scripts": {
+    "start": "grunt",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

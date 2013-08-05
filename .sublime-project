@@ -1,0 +1,28 @@
+{
+	"folders": [{
+            "name": "Jade Templates",
+            "path": "app/jade"
+        }, {
+            "name": "Application Sources",
+            "path": "app/src"
+        }, {
+            "name": "Static Assets",
+            "path": "app/assets"
+        }, {
+            "name": "Project Files",
+            "path": ".",
+            "folder_exclude_patterns": [
+                "app/assets",
+                "app/jade",
+                "app/src"
+            ],
+            "file_exclude_patterns":
+            [
+                ".*",
+                "*.orig",
+                ".settings",
+                "libpeerconnection.log"
+            ]
+        }
+	]
+}
