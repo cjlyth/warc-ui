@@ -13,21 +13,38 @@
   var module = angular.module('warcUI', dependencies);
 
   module.config(['$stateProvider', '$urlRouterProvider', 
-        function(stateProvider, urlRouterProvider) {
-    
+        function(stateProvider, urlRouterProvider) {    
     urlRouterProvider.otherwise("/");
 
-    stateProvider.state('overview', {
-      url: "/"
-    });
-    stateProvider.state('collect', {
-      url: "/collect"
-    });
-    stateProvider.state('replay', {
-      url: "/replay"
-    });
-    stateProvider.state('preferences', {
-      url: "/prefs"
-    });
+    urlRouterProvider.when("", "/config/list");
+    urlRouterProvider.when("/", "/config/list");
+      
+    stateProvider
+      .state('config', {
+        abstract: true, 
+        url: '/config',
+        controller: 'ConfigCtrl',
+        template: '<div ui-view/>',
+        onEnter: function(){
+          console.log("enter config");
+        }
+      })
+      .state('config.list', {
+        url: '/list',
+        templateUrl: '/templates/config-list.html',
+        controller: 'ConfigListCtrl',
+        onEnter: function(){
+          console.log("enter config.list");
+        }
+      })
+      .state('config.detail', {
+        url: '/:id',
+        templateUrl: '/templates/config-detail.html',
+        controller: 'ConfigDetailCtrl',
+        onEnter: function(){
+          console.log("enter config.detail");
+        }
+      })
+      ;
   }]);
 }());

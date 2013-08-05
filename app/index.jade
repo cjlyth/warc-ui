@@ -25,10 +25,10 @@ html(ng-app="warcUI",lang="en")
         li(popover="Exit",popover-placement="bottom",popover-trigger="mouseenter",popover-popup-delay=800)
           a(href="#/prefs")
             i.icon-fixed-width.icon-signout
-    div(ui-view)
+    
     div Angular seed app: v
       span(app-version)
-
+    div(ui-view)
     include partials/bower.libs.jade
 
     script(src="scripts/warcUI.js")

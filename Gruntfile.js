@@ -94,7 +94,10 @@ module.exports = function ( grunt ) {
     },
     jade: {
       options:{
-        data: {title: 'warc UI'}
+        data: {
+          doctype: '5',
+          title: 'warc UI'
+        }
       },
       dev: {
         files: [{
