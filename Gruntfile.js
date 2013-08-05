@@ -13,6 +13,7 @@ module.exports = function ( grunt ) {
         files: [ 
           'app/jade/**', 
           'app/src/**/*.css', 
+          'app/src/**/*.js',
           'app/assets/**' 
         ],
         tasks:  [ 'express:dev' ]

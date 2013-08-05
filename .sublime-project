@@ -1,28 +1,37 @@
 {
-	"folders": [{
-            "name": "Jade Templates",
-            "path": "app/jade"
-        }, {
-            "name": "Application Sources",
-            "path": "app/src"
-        }, {
-            "name": "Static Assets",
-            "path": "app/assets"
-        }, {
-            "name": "Project Files",
-            "path": ".",
-            "folder_exclude_patterns": [
-                "app/assets",
-                "app/jade",
-                "app/src"
-            ],
-            "file_exclude_patterns":
-            [
-                ".*",
-                "*.orig",
-                ".settings",
-                "libpeerconnection.log"
-            ]
-        }
+	"folders":
+	[
+		{
+			"name": "Jade Templates",
+			"path": "app/jade"
+		},
+		{
+			"name": "Application Sources",
+			"path": "app/src"
+		},
+		{
+			"name": "Static Assets",
+			"path": "app/assets"
+		},
+		{
+			"file_exclude_patterns":
+			[
+				".*",
+				"*.orig",
+				".settings",
+				"libpeerconnection.log"
+			],
+			"folder_exclude_patterns":
+			[
+				"app/assets",
+				"app/jade",
+				"app/src"
+			],
+			"name": "Project Files",
+			"path": "/home/cjlyth/projects/warc/ui"
+		},
+		{
+			"path": "/tmp/angular-seed"
+		}
 	]
 }

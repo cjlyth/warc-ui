@@ -1,11 +1,22 @@
 doctype 5
-html
+html(ng-app="warcUI",lang="en")
   head
+    meta(charset="utf-8")
     title= title
     link(rel='stylesheet', href='/styles/style.css')
   body
-    h1
-      img(src="/img/Blue_with_BIG_warc_higher_res.jpg",class="")
-      = title
-    p Welcome to #{title}
-    block content
+    div #{title}
+    ul(class="menu")
+      li 
+        a(href="#/view1") view1
+      li
+        a(href="#/view2") view2
+    div(ng-view)
+    div Angular seed app: v
+      span(app-version)
+  script(src="lib/angular.js")
+  script(src="scripts/warcUI.js")
+  script(src="scripts/services.js")
+  script(src="scripts/controllers.js")
+  script(src="scripts/filters.js")
+  script(src="scripts/directives.js")

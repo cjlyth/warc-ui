@@ -17,6 +17,10 @@ Q(express())
 })
 .then(function configAssets(app){
     app.use(express.static(__dirname + '/app/assets'));
+
+    app.use('/lib', 
+        express.static(__dirname + '/bower_components/angular'));
+
     return app;
 })
 .then(function configLess(app){
