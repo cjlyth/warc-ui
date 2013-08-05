@@ -2,18 +2,20 @@
 	"folders":
 	[
 		{
-			"name": "Jade Templates",
-			"path": "app/jade"
-		},
-		{
 			"name": "Application Sources",
-			"path": "app/src"
+			"path": "app",
+			"file_exclude_patterns":
+			[
+				"*.css"
+			]
 		},
 		{
-			"name": "Static Assets",
-			"path": "app/assets"
+			"name": "Application Tests",
+			"path": "test"
 		},
 		{
+			"name": "Project Files",
+			"path": ".",
 			"file_exclude_patterns":
 			[
 				".*",
@@ -23,15 +25,9 @@
 			],
 			"folder_exclude_patterns":
 			[
-				"app/assets",
-				"app/jade",
-				"app/src"
-			],
-			"name": "Project Files",
-			"path": "/home/cjlyth/projects/warc/ui"
-		},
-		{
-			"path": "/tmp/angular-seed"
+				"app",
+				"test"
+			]
 		}
 	]
 }
