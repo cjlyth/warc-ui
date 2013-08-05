@@ -2,20 +2,18 @@
 	"folders":
 	[
 		{
-			"name": "Application Sources",
-			"path": "app",
 			"file_exclude_patterns":
 			[
 				"*.css"
-			]
+			],
+			"name": "Application Sources",
+			"path": "app"
 		},
 		{
 			"name": "Application Tests",
 			"path": "test"
 		},
 		{
-			"name": "Project Files",
-			"path": ".",
 			"file_exclude_patterns":
 			[
 				".*",
@@ -25,9 +23,10 @@
 			],
 			"folder_exclude_patterns":
 			[
-				"app",
 				"test"
-			]
+			],
+			"name": "Project Files",
+			"path": "/home/cjlyth/projects/warc/ui"
 		}
 	]
 }

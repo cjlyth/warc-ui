@@ -1,10 +1,10 @@
-'use strict';
+(function () {
+    "use strict"; 
+    var module = angular.module('warcUI.filters', []);
+    module.filter('interpolate', ['version', function(version) {
+        return function(text) {
+            return String(text).replace(/\%VERSION\%/mg, version);
+        };
+    }]);
+}());
 
-/* Filters */
-
-angular.module('warcUI.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);

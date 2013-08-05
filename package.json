@@ -9,12 +9,10 @@
     "archive"
   ],
   "homepage": "http://cjlyth.github.io/warc-ui",
-  "licenses": [
-    {
+  "licenses": [{
       "type": "MIT",
       "url": "https://raw.github.com/cjlyth/warc-ui/master/LICENSE"
-    }
-  ],
+  }],
   "repository": {
     "type": "git",
     "url": "git://github.com/cjlyth/warc-ui.git"
@@ -26,19 +24,15 @@
     "node": ">=0.10.13"
   },
   "devDependencies": {
-    "jade": "*",
     "grunt": "~0.4.1",
     "grunt-contrib-watch": "~0.5.1",
-    "grunt-express-server": "~0.4.2",
-    "connect-livereload": "~0.2.0",
-    "express": "3.3.4",
-    "less-middleware": "*",
-    "express-livereload": "0.0.24",
-    "q": "~0.9.6"
-  },
-  "config": {
-    "reload_port": "9002",
-    "session_secret": "warc-ui_sessionKey"
+    "grunt-contrib-less": "~0.6.4",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jade": "~0.8.0",
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "connect-livereload": "~0.2.0"
   },
   "scripts": {
     "start": "grunt",

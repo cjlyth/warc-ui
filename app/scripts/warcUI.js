@@ -1,19 +1,33 @@
-'use strict';
+(function () {
+  "use strict";
+  var dependencies = [
+              'ui.utils',
+              'ui.state',
+              'placeholders',
+              'ui.bootstrap',
+              'warcUI.filters', 
+              'warcUI.services', 
+              'warcUI.directives', 
+              'warcUI.controllers'];
 
-angular.module('warcUI', [
-               'warcUI.filters', 
-               'warcUI.services', 
-               'warcUI.directives', 
-               'warcUI.controllers']).
-  config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view1', {
-        templateUrl: 'templates/partial1.html', 
-        controller: 'MyCtrl1'
+  var module = angular.module('warcUI', dependencies);
+
+  module.config(['$stateProvider', '$urlRouterProvider', 
+        function(stateProvider, urlRouterProvider) {
+    
+    urlRouterProvider.otherwise("/replay");
+
+    stateProvider.state('collect', {
+      url: "/collect",
+      controller: 'MyCtrl1',
+      templateUrl: 'templates/partial1.html'
     });
-    $routeProvider.when('/view2', {
-        templateUrl: 'templates/partial2.html', 
-        controller: 'MyCtrl2'
+
+    stateProvider.state('replay', {
+      url: "/replay",
+      controller: 'MyCtrl2',
+      templateUrl: 'templates/partial2.html'
     });
-    $routeProvider.otherwise({redirectTo: '/view1'});
+
   }]);
-
+}());

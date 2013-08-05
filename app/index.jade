@@ -1,0 +1,28 @@
+doctype 5
+html(ng-app="warcUI",lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport",content="width=device-width, initial-scale=1.0")    
+    title= title
+    link(rel='stylesheet', href='styles/main.css')
+  body
+    .navbar
+      a.navbar-brand(href="#/view1") #{title}
+      ul.nav.navbar-nav
+        li(ui-route="#/replay", ng-class="{active: $uiRoute}")
+          i.icon-play
+          a(href="#/replay") Replay
+        li(ui-route="#/collect", ng-class="{active: $uiRoute}")
+          a(href="#/collect") Collect
+
+    div(ui-view)
+    div Angular seed app: v
+      span(app-version)
+
+    include partials/bower.libs.jade
+
+    script(src="scripts/warcUI.js")
+    script(src="scripts/filters.js")
+    script(src="scripts/services.js")
+    script(src="scripts/controllers.js")
+    script(src="scripts/directives.js")
