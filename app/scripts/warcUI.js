@@ -15,19 +15,19 @@
   module.config(['$stateProvider', '$urlRouterProvider', 
         function(stateProvider, urlRouterProvider) {
     
-    urlRouterProvider.otherwise("/replay");
+    urlRouterProvider.otherwise("/");
 
+    stateProvider.state('overview', {
+      url: "/"
+    });
     stateProvider.state('collect', {
-      url: "/collect",
-      controller: 'MyCtrl1',
-      templateUrl: 'templates/partial1.html'
+      url: "/collect"
     });
-
     stateProvider.state('replay', {
-      url: "/replay",
-      controller: 'MyCtrl2',
-      templateUrl: 'templates/partial2.html'
+      url: "/replay"
     });
-
+    stateProvider.state('preferences', {
+      url: "/prefs"
+    });
   }]);
 }());

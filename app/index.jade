@@ -7,14 +7,24 @@ html(ng-app="warcUI",lang="en")
     link(rel='stylesheet', href='styles/main.css')
   body
     .navbar
-      a.navbar-brand(href="#/view1") #{title}
+      a.navbar-brand(href="#/") #{title}
       ul.nav.navbar-nav
         li(ui-route="#/replay", ng-class="{active: $uiRoute}")
-          i.icon-play
-          a(href="#/replay") Replay
+          a(href="#/replay")
+            i.icon-fixed-width.icon-repeat
+            | Replay
         li(ui-route="#/collect", ng-class="{active: $uiRoute}")
-          a(href="#/collect") Collect
+          a(href="#/collect")
+            i.icon-fixed-width.icon-download-alt
+            | Collect
 
+      ul.nav.navbar-nav.pull-right
+        li(popover="Preferences",popover-placement="bottom",popover-trigger="mouseenter",popover-popup-delay=800,ui-route="#/prefs", ng-class="{active: $uiRoute}")
+          a(href="#/prefs")
+            i.icon-fixed-width.icon-cogs
+        li(popover="Exit",popover-placement="bottom",popover-trigger="mouseenter",popover-popup-delay=800)
+          a(href="#/prefs")
+            i.icon-fixed-width.icon-signout
     div(ui-view)
     div Angular seed app: v
       span(app-version)

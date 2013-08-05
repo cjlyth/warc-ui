@@ -29,6 +29,11 @@ module.exports = function ( grunt ) {
             dest: '<%= meta.out %>/app/',
             src:'**' ,
             expand: true
+          }, {
+            cwd: 'bower_components/font-awesome',
+            src:'font/**',
+            expand: true,
+            dest: '<%= meta.out %>/app/'
           }
         ]
       },
@@ -89,7 +94,7 @@ module.exports = function ( grunt ) {
     },
     jade: {
       options:{
-        data: {title: 'warcUI'}
+        data: {title: 'warc UI'}
       },
       dev: {
         files: [{
