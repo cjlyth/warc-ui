@@ -1,31 +1,27 @@
 (function () {
     "use strict";
-    var controllerModule = angular.module('warcUI.controllers', ['ui.state']);
+    var controllerModule = angular.module('warcUI.controllers', 
+                                          ['ui.state', 'warcUI.services']);
 
-    controllerModule.controller('MainCtrl', ['$state', function(state) {
-        console.log('MainCtrl');
-    }]);
-
-    controllerModule.controller('ConfigCtrl', 
-    ['$scope', function(scope) {
-        console.log('ConfigCtrl');
-        scope.configs = [
-            {id: 0, label: "one"},
-            {id: 1, label: "two"},
-            {id: 2, label: "three"},
-            {id: 3, label: "four"}
-        ];
-    }]);
     controllerModule.controller('ConfigDetailCtrl', 
-    ['$scope', '$stateParams', function(scope, stateParams) {
-        console.log('ConfigDetailCtrl');
-        scope.config = scope.configs[stateParams.id];
-
+    ['$scope', 'configResource', '$stateParams', 
+    function(scope, configResource, stateParams) {
+        if (stateParams && stateParams.id) {
+            configResource.get({ 
+                'criteria': '{"_id":{"$oid":"' + stateParams.id + '"}}'
+            }).$then(function(d){
+                console.log('one: ', d);
+                scope.config = d;
+            });            
+        }
     }]);
     controllerModule.controller('ConfigListCtrl', 
-    ['$scope', function(scope) {
-        console.log('ConfigListCtrl');
-
+            ['$scope', 'configResource', 
+    function(scope, configResource) {
+        console.log('configResource',configResource);
+        configResource.get().$then(function(d){
+            console.log('list: ', d);
+            scope.configs = d;
+        });
     }]);
-
 }());

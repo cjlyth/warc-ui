@@ -7,30 +7,38 @@ html(ng-app="warcUI",lang="en")
     link(rel='stylesheet', href='styles/main.css')
   body
     .navbar
-      a.navbar-brand(href="#/") #{title}
-      ul.nav.navbar-nav
-        li(ui-route="#/replay", ng-class="{active: $uiRoute}")
-          a(href="#/replay")
-            i.icon-fixed-width.icon-repeat
-            | Replay
-        li(ui-route="#/collect", ng-class="{active: $uiRoute}")
-          a(href="#/collect")
-            i.icon-fixed-width.icon-download-alt
-            | Collect
-
-      ul.nav.navbar-nav.pull-right
-        li(popover="Preferences",popover-placement="bottom",popover-trigger="mouseenter",popover-popup-delay=800,ui-route="#/prefs", ng-class="{active: $uiRoute}")
-          a(href="#/prefs")
-            i.icon-fixed-width.icon-cogs
-        li(popover="Exit",popover-placement="bottom",popover-trigger="mouseenter",popover-popup-delay=800)
-          a(href="#/prefs")
-            i.icon-fixed-width.icon-signout
-    
-    div Angular seed app: v
-      span(app-version)
-    div(ui-view)
-    include partials/bower.libs.jade
-
+      .container
+        a.navbar-brand(href="#/") #{title}
+        ul.nav.navbar-nav.pull-right
+          li(ng-class="{ active: $state.includes('config') }")
+            a(ng-href="#/config/")
+              i.icon-fixed-width.icon-edit
+              | Configs
+          li(ng-class="{ active: $state.includes('collect') }")
+            a(ng-href="#/collect/")
+              i.icon-fixed-width.icon-download-alt
+              | Collect
+          li(ng-class="{ active: $state.includes('replay') }")
+            a(ng-href="#/replay/")
+              i.icon-fixed-width.icon-repeat
+              | Replay
+          li(tooltip="User Preferences", tooltip-placement="bottom", ng-class="{ active: $state.includes('prefs') }")
+            a(ng-href="#/prefs/"): i.icon-fixed-width.icon-cogs
+          li(tooltip="Exit", tooltip-placement="bottom")
+            a(href="#/exit"): i.icon-fixed-width.icon-signout
+    .container: .row
+        .col-3: ul.pager
+          li.previous.disabled
+            span &laquo;
+          li Configs
+          li.next.disabled
+            span &raquo;
+        .col-9
+    .container(ui-view)
+    .container: .row
+        .col-lg-3(ui-view="list")
+        .col-lg-9(ui-view="detail")
+    include partials/script-libs.jade
     script(src="scripts/warcUI.js")
     script(src="scripts/filters.js")
     script(src="scripts/services.js")

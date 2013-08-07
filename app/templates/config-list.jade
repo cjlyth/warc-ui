@@ -1,4 +1,4 @@
-h3 Config List
-ul
-  li(ng-repeat="config in configs")
-    a(ng-href="#/config/{{config.id}}") {{config.label}}
+.list-group: a.list-group-item(ng-repeat="c in configs.data.results"
+    ng-href='#/config/{{c._id.$oid}}'
+    ng-class="{'active': config.data.results[0]._id.$oid == c._id.$oid  }") {{c.label}}
+

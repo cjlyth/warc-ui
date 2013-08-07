@@ -9,10 +9,12 @@
     "archive"
   ],
   "homepage": "http://cjlyth.github.io/warc-ui",
-  "licenses": [{
+  "licenses": [
+    {
       "type": "MIT",
       "url": "https://raw.github.com/cjlyth/warc-ui/master/LICENSE"
-  }],
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/cjlyth/warc-ui.git"
@@ -32,10 +34,16 @@
     "grunt-contrib-jshint": "~0.6.2",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-connect": "~0.3.0",
-    "connect-livereload": "~0.2.0"
+    "connect-livereload": "~0.2.0",
+    "proxy-middleware": "~0.4.0",
+    "grunt-devtools": "0.1.0-7",
+    "grunt-contrib-copy": "~0.4.1"
   },
   "scripts": {
     "start": "grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "grunt-devtools": "0.1.0-7"
   }
 }

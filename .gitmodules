@@ -1,0 +1,12 @@
+[submodule "libs/angular-ui-utils"]
+	path = libs/angular-ui-utils
+	url = https://github.com/angular-ui/ui-utils
+[submodule "libs/angular-ui-router"]
+	path = libs/angular-ui-router
+	url = https://github.com/angular-ui/ui-router
+[submodule "libs/angular-ui-bootstrap"]
+	path = libs/angular-ui-bootstrap
+	url = https://github.com/angular-ui/bootstrap
+[submodule "libs/angular"]
+	path = libs/angular
+	url = https://github.com/angular/angular.js

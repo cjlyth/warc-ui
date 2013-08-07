@@ -1,2 +1,6 @@
-h3 Config Detail
-p {{ config.label }}
+.row
+  input(type="text",ng-model="config.data.results[0].label")
+.row
+  button.btn.btn-primary.btn-small(ng-click="saveConfig()")
+    i.icon-save.icon-white.icon-fixed-width
+    | Save

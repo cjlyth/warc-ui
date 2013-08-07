@@ -1,5 +1,6 @@
 var path = require('path');
 module.exports = function ( grunt ) {
+  grunt.loadNpmTasks('grunt-devtools');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jade');
@@ -15,7 +16,7 @@ module.exports = function ( grunt ) {
     port: 9001,
     reload: 9002
   };
-
+    
   grunt.initConfig({
     meta: projectConfig,
     clean: {
@@ -39,13 +40,7 @@ module.exports = function ( grunt ) {
       },
       libs: {
         files: [{
-          src: ['angular/angular.js',
-                'angular-cookies/angular-cookies.js',
-                'angular-resource/angular-resource.js',
-                'angular-sanitize/angular-sanitize.js',
-                'angular-ui-router/release/angular-ui-router.min.js',
-                'angular-bootstrap/ui-bootstrap-tpls.js',
-                'bower-angular-placeholders/angular-placeholders.js',
+          src: ['bower-angular-placeholders/angular-placeholders.js',
                 'angular-ui-utils/modules/showhide/showhide.js',
                 'angular-ui-utils/modules/ie-shiv/ie-shiv.js',
                 'angular-ui-utils/modules/scrollfix/scrollfix.js',
@@ -95,7 +90,6 @@ module.exports = function ( grunt ) {
     jade: {
       options:{
         data: {
-          doctype: '5',
           title: 'warc UI'
         }
       },
@@ -113,8 +107,7 @@ module.exports = function ( grunt ) {
         options: {
           paths: [
             'bower_components/bootstrap/less',
-            'bower_components/font-awesome/less/',
-            'bower_components/angular-ui-utils/modules/highlight/'
+            'bower_components/font-awesome/less/'
           ]
         },
         files: [{
@@ -166,12 +159,17 @@ module.exports = function ( grunt ) {
           port: '<%= meta.port %>',
           hostname: '<%= meta.hostname %>',
           middleware: function(connect, options) {
+            var proxy = require('proxy-middleware');
+            var proxyOptions = require('url')
+                  .parse('http://localhost:27080/warc');
+                proxyOptions.route = '/api';
             return [
+              proxy(proxyOptions),
               require('connect-livereload')({
                 port: projectConfig.reload
               }),
               connect.static(options.base),
-              connect.directory(options.base),
+              connect.directory(options.base)
             ];
           },
           base: '<%= meta.out %>/app'
@@ -180,7 +178,6 @@ module.exports = function ( grunt ) {
     }
   });
   // grunt.registerTask('default', ['express:dev', 'watch:dev']);
-  // 
   grunt.registerTask('build', ['copy:libs','copy:assets', 'less:dev', 'jade:dev', 'jshint:dev', 'uglify:dev']);
   grunt.registerTask('default', ['clean', 'build', 'connect','watch']);
 };
